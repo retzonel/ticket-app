@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_app/base/bottom_nav_bar.dart';
 
 void main() {
-  print("Hello World");
-  var car = Car();
-  car.wheelsNum();
-  // runApp(const MyApp());
+  runApp(const MyApp());
 }
 
-abstract class Vehicle {
-  Vehicle();
-  int wheels = 10;
-  void wheelsNum();
-}
-
-class Car extends Vehicle {
-  void carType() {
-    print("land runner");
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  void wheelsNum() {
-    print("the car's wheels number is $wheels");
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 255, 141, 2),
+        ),
+        useMaterial3: true,
+      ),
+      home: BottomNavBar(),
+    );
   }
 }
