@@ -1,0 +1,10 @@
+{
+    "editor.inlayHints.enabled": "on",
+    "problems.decorations.enabled": false,
+    "problems.visibility": true,
+    "outline.problems.enabled": true,
+    "editor.colorDecorators": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "error"
+    ]
+}
