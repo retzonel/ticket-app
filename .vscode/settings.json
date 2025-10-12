@@ -6,5 +6,7 @@
     "editor.colorDecorators": true,
     "errorLens.enabledDiagnosticLevels": [
         "error"
-    ]
+    ],
+    "dart.previewFlutterUiGuides": true,
+    "editor.lineHeight": 0
 }
