@@ -2,6 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
+import 'package:ticket_app/base/widgets/app_double_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,12 +11,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // we wants scrollable screen so we use ListView
     return Scaffold(
+      backgroundColor: AppStyles.bgColor,
       body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
+                SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -62,6 +65,15 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 40),
+
+                AppDoubleText(
+                  bigText: "Upcoming Flights",
+                  smallText: "View all",
+                ),
+
+                SizedBox(height: 40),
+                AppDoubleText(bigText: "Hotels", smallText: "View All"),
               ],
             ),
           ),

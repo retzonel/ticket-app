@@ -8,5 +8,6 @@
         "error"
     ],
     "dart.previewFlutterUiGuides": true,
-    "editor.lineHeight": 0
+    "editor.lineHeight": 0,
+    "color-highlight.markerType": "underline"
 }
