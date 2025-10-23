@@ -27,4 +27,8 @@ class AppStyles {
     fontSize: 17,
     fontWeight: FontWeight.w700,
   );
+  static TextStyle headLineStyle4 = const TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+  );
 }

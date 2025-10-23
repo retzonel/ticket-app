@@ -4,23 +4,13 @@ import 'package:ticket_app/base/bottom_nav_bar.dart';
 void main() {
   runApp(const MyApp());
 
-  var test = TestClass(4, 10);
-  print(test.x + test.y);
-
-  var newTest = test.copyWith(x:30);
-  print(newTest.x + newTest.y);
-
-  var newTest2 = test.copyWith(y:50);
-  print(newTest2.x + newTest2.y);
-}
-
-class TestClass {
-  int x;
-  int y;
-  TestClass(this.x, this.y);
-  TestClass copyWith({int? x, int? y}) {
-    return TestClass(x ?? this.x, y ?? this.y);
-  }
+  int x = 10;
+  x == 10 ? print("He is a kid") : print("He is not a kid");
+  // if (x == 10) {
+  //   print("He is a kid");
+  // } else {
+  //   print("He is not a kid");
+  // }
 }
 
 class MyApp extends StatelessWidget {
