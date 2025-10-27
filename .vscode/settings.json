@@ -1,6 +1,6 @@
 {
     "editor.inlayHints.enabled": "on",
-    "problems.decorations.enabled": false,
+    "problems.decorations.enabled": true,
     "problems.visibility": true,
     "outline.problems.enabled": true,
     "editor.colorDecorators": true,
@@ -9,5 +9,6 @@
     ],
     "dart.previewFlutterUiGuides": true,
     "editor.lineHeight": 0,
-    "color-highlight.markerType": "underline"
+    "color-highlight.markerType": "underline",
+    "problems.showCurrentInStatus": true
 }
