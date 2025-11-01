@@ -1,5 +1,6 @@
 class AppMedia {
-  static const _baseImage = 'assets/images';
+  static const String _baseImage = 'assets/images';
   static const logo = "$_baseImage/logo.png";
-  static const holetRoom = "$_baseImage/hotel_room.png"; 
+  static const String hotelRoom = "$_baseImage/hotel_room.png";
+  static const String planeSit = "$_baseImage/plane_sit.jpg";
 }

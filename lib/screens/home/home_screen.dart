@@ -6,7 +6,7 @@ import 'package:ticket_app/base/utils/app_json.dart';
 import 'package:ticket_app/base/utils/app_routes.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
-import 'package:ticket_app/screens/widgets/hotel.dart';
+import 'package:ticket_app/screens/home/widgets/hotel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 20),
                 Row(
@@ -91,18 +92,21 @@ class HomeScreen extends StatelessWidget {
                 AppDoubleText(
                   bigText: "Hotels",
                   smallText: "View All",
-                  func:() {
+                  func: () {
                     print("Hotels tapped");
                   },
                 ),
+
+                SizedBox(height: 20),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      Hotel(), Hotel()
-                    ],
+                    children: hotelList
+                        .take(2)
+                        .map((singleHotel) => Hotel(hotel: singleHotel))
+                        .toList(),
                   ),
-                )
+                ),
               ],
             ),
           ),
