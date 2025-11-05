@@ -5,35 +5,52 @@ import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/app_json.dart';
 import 'package:ticket_app/base/widgets/app_column_text_layout.dart';
 import 'package:ticket_app/base/widgets/app_layoutbuilder_widget.dart';
-import 'package:ticket_app/base/widgets/app_tabs.dart';
 import 'package:ticket_app/base/widgets/text_style_fourth.dart';
 import 'package:ticket_app/base/widgets/text_style_third.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
-import 'package:ticket_app/screens/search/widgets/app_ticket_tabs.dart';
 import 'package:ticket_app/screens/ticket/widgets/ticket_positioned_circle.dart';
 import 'package:ticket_app/screens/ticket/widgets/ticket_screen_tabs.dart';
 
-class TicketScreen extends StatelessWidget {
-  final bool isColor = true;
+class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
+
+  @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  late int ticketIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    var args = ModalRoute.of(context)!.settings.arguments as Map;
+    print("passsed index ${args["index"]}");
+    ticketIndex = args["index"];
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyles.bgColor,
+      appBar: AppBar(
+        title: Text("Tickets", style: AppStyles.headLineStyle1),
+        backgroundColor: AppStyles.bgColor,
+        centerTitle: true,
+      ),
       body: Stack(
         children: [
           ListView(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             children: [
-              SizedBox(height: 15),
-              Text("Tickets", style: AppStyles.headLineStyle1),
-              const SizedBox(height: 20),
+              // SizedBox(height: 15),
+              // Text("Tickets", style: AppStyles.headLineStyle1),
+              // const SizedBox(height: 20),
               TicketScreenTabs(),
               SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.only(left: 16),
-                child: TicketView(ticket: ticketList[2], isColor: true),
+                child: TicketView(ticket: ticketList[ticketIndex], isColor: true),
               ),
               SizedBox(height: 1),
               Container(
@@ -49,14 +66,14 @@ class TicketScreen extends StatelessWidget {
                           firstText: "Flutter DB",
                           secondText: "Passenger",
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          isColor: isColor,
+                          isColor: true,
                         ),
 
                         AppColumnTextLayout(
                           firstText: "5221 364869",
                           secondText: "passport",
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          isColor: isColor,
+                          isColor: true,
                         ),
                       ],
                     ),
@@ -64,7 +81,7 @@ class TicketScreen extends StatelessWidget {
                       height: 40,
                       child: AppLayoutBuilderWidget(
                         randomDivider: 16,
-                        isColor: isColor,
+                        isColor: true,
                       ),
                     ),
                     Row(
@@ -74,14 +91,14 @@ class TicketScreen extends StatelessWidget {
                           firstText: "2465 8479948456",
                           secondText: "Number of E-Tickets",
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          isColor: isColor,
+                          isColor: true,
                         ),
 
                         AppColumnTextLayout(
                           firstText: "B37849",
                           secondText: "Booking code",
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          isColor: isColor,
+                          isColor: true,
                         ),
                       ],
                     ),
@@ -89,7 +106,7 @@ class TicketScreen extends StatelessWidget {
                       height: 40,
                       child: AppLayoutBuilderWidget(
                         randomDivider: 16,
-                        isColor: isColor,
+                        isColor: true,
                       ),
                     ),
 
@@ -106,14 +123,14 @@ class TicketScreen extends StatelessWidget {
 
                                 TextStyleThird(
                                   text: " *** 2488",
-                                  isColor: isColor,
+                                  isColor: true,
                                 ),
                               ],
                             ),
                             const SizedBox(height: 5),
                             TextStyleFourth(
                               text: "Payment method",
-                              isColor: isColor,
+                              isColor: true,
                             ),
                           ],
                         ),
@@ -122,7 +139,7 @@ class TicketScreen extends StatelessWidget {
                           firstText: "\$345",
                           secondText: "Price",
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          isColor: isColor,
+                          isColor: true,
                         ),
                       ],
                     ),
@@ -164,12 +181,14 @@ class TicketScreen extends StatelessWidget {
               SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.only(left: 16),
-                child: TicketView(ticket: ticketList[2]),
+                child: TicketView(ticket: ticketList[ticketIndex]),
               ),
+
+              SizedBox(height: 20,)
             ],
           ),
-          TicketPositionedCircle(isRight: true,),
-          TicketPositionedCircle()
+          TicketPositionedCircle(isRight: true),
+          TicketPositionedCircle(),
         ],
       ),
     );
