@@ -55,7 +55,7 @@ class Hotel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: TextStyleSecond(
-              text: "\$${hotel["price"]}",
+              text: "\$${hotel["price"]}/night",
               color: AppStyles.kakiColor,
             ),
           ),

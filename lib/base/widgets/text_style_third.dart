@@ -4,7 +4,13 @@ import 'package:ticket_app/base/res/styles/app_styles.dart';
 class TextStyleThird extends StatelessWidget {
   final String text;
   final bool? isColor;
-  const TextStyleThird({super.key, required this.text, this.isColor});
+  final Color color;
+  const TextStyleThird({
+    super.key,
+    required this.text,
+    this.isColor,
+    this.color = Colors.white,
+  });
 
   @override
   Widget build(BuildContext context) {

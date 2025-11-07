@@ -23,9 +23,12 @@ class _TicketScreenState extends State<TicketScreen> {
 
   @override
   void didChangeDependencies() {
-    var args = ModalRoute.of(context)!.settings.arguments as Map;
-    print("passsed index ${args["index"]}");
-    ticketIndex = args["index"];
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      print("passsed index ${args["index"]}");
+      ticketIndex = args["index"];
+    }
+
     super.didChangeDependencies();
   }
 
@@ -50,7 +53,10 @@ class _TicketScreenState extends State<TicketScreen> {
               SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.only(left: 16),
-                child: TicketView(ticket: ticketList[ticketIndex], isColor: true),
+                child: TicketView(
+                  ticket: ticketList[ticketIndex],
+                  isColor: true,
+                ),
               ),
               SizedBox(height: 1),
               Container(
@@ -184,7 +190,7 @@ class _TicketScreenState extends State<TicketScreen> {
                 child: TicketView(ticket: ticketList[ticketIndex]),
               ),
 
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
             ],
           ),
           TicketPositionedCircle(isRight: true),
